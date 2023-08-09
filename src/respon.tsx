@@ -1,7 +1,10 @@
 import { useMemo } from "react";
 import { Text, View, Dimensions } from "react-native";
 
-export const ResponeRerender = ({ respone }: any) => {
+interface ResponeRerenderProps {
+  respone: Response,
+}
+export const ResponeRerender = ({ respone }: ResponeRerenderProps) => {
   // console.log(scale);
   const {height, width} = Dimensions.get("window")
   return (
@@ -24,8 +27,8 @@ export const Block = ({block, scale}: any) => {
   
   const rect = useMemo(() => {
     return {
-      left: block.frame?.left,
-      top: block.frame?.top,
+      left: block.frame?.left / 2,
+      top: block.frame?.top / 1.5,
       height: block.frame?.height * scale,
       width: block.frame?.width * scale
     }
